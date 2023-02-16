@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mp3 Players</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-div">
+        <div class="music_container">
+            <h2 id="song_name">maiyaa mainu </h2>
+            <h4 id="artist_name">artist name</h4>
+            <div class="img_cont">
+                <img src="image/vip-1.jpg"  alt="">
+            </div>
+            <audio src="audio/vip-1.mp3"></audio>
+
+
+            <!-- control -->
+            <div class="controls">
+                <i class="fas fa-backward " id="prev" title="previous"></i>
+                <i class="fas fa-play  pause-play" id="play" title="play"></i>
+                <i class="fas fa-forward " id="next" title="next"></i>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.querySelector('audio');
+        const img = document.querySelector('img');
+        const play = document.getElementById('play');
+        const next = document.getElementById('next');
+        const prev = document.getElementById('prev');
+        const title = document.getElementById('song_name');
+        const artist = document.getElementById('artist_name');
+
+        const songsList = [
+        {
+            name : 'vip-1',
+            title: 'maiya mainu',
+            artist : 'unknown'
+        },
+        {
+            name : 'vip-2',
+            title: 'jalebi baby',
+            artist : 'unknown'
+        },
+        {
+            name: 'vip-3',
+            title : 'je jatt vigar gya',
+            artist: 'unknow2'
+        },
+        {
+            name: 'vip-4',
+            title : 'laddi oye ',
+            artist: 'unknow3'
+        },
+        {
+            name: 'vip-5',
+            title : 'mexico',
+            artist: 'karan aujla'
+        },
+        {
+            name: 'vip-6',
+            title : 'proper patola',
+            artist: 'badshah'
+        }]
+
+        let isPlaying = false;
+       const musicPlay = () =>{
+            isPlaying = true;  
+            music.play();
+            play.classList.replace('fa-play','fa-pause');
+            img.classList.add("anime");
+            
+        }
+          
+           const musicPause =  () =>{
+            isPlaying = false;
+            music.pause();
+            play.classList.replace('fa-pause','fa-play');
+            img.classList.remove('anime');
+        }
+
+        play.addEventListener('click', () =>{
+            isPlaying?musicPause(): musicPlay();
+        })
+
+          // changing songs
+          const songload = (songsList) => {
+                title.textContent = songsList.title;
+                artist.textContent = songsList.artist;
+                music.src = "audio/" + songsList.name + '.mp3';
+                img.src = "image/" + songsList.name + '.jpg';
+            };
+
+       let songsIndex = 0;
+       const nextSong = () =>{
+        songsIndex = (songsIndex +1) % songsList.length;
+           songload(songsList[songsIndex]);
+           musicPlay();
+       }
+       const prevSong = () =>{
+        songsIndex = (songsIndex - 1 + songsList.length) % songsList.length;
+           songload(songsList[songsIndex]);
+           musicPlay();
+       }
+       next.addEventListener('click', nextSong);
+       prev.addEventListener('click', prevSong);
+
+    </script>
+
+</body>
+
+</html>

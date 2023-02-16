@@ -1,0 +1,109 @@
+*, *::after, *::before{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-div{
+    height: 100vh;
+    width: 100%;
+    background-color: antiquewhite;
+    display: grid;
+    place-items: center;
+}
+.music_container{
+    height: 55rem;
+    width: 35rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0rem 1.2rem 3rem 0.5rem rgba(0,0,0,0.2);
+    padding: 3rem;
+    text-align: center;
+}
+#song_name{
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    word-spacing: 0.3rem;
+    margin: 2rem 0 0.5rem 0;
+    color: rgb(19, 19, 19);
+    text-shadow: 0rem 0.2rem 0.5rem  rgba(0, 0, 0, 0.8);
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+#artist_name{
+    text-transform: capitalize;
+    letter-spacing: 0.15rem;
+    word-spacing: 0.25rem;
+    margin: 1rem;
+    color: #cccaca;
+    /* text-shadow: 0rem 0.2rem 0.9rem  rgba(0, 0, 0, 0.8); */
+    font-size: 1.6rem;
+    font-style: italic;
+    margin-bottom: 4rem;
+}
+.img_cont{
+    height: 25rem;
+    width: 25rem;
+    margin: auto;
+    border-radius: 50%;
+    margin-bottom: 5rem; 
+     box-shadow: 0rem 1.2rem 3rem 0.5rem rgba(0,0,0,0.4);
+}
+.img_cont img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0rem 1.2rem 3rem 0.5rem rgba(0,0,0,0.0);
+}
+.controls{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.controls .fas{
+    color: black;
+    cursor: pointer;
+    font-size: 2.5rem;
+    filter: drop-shadow(0rem 1.2rem 3rem 0.5rem rgba(0,0,0,0.4));
+    
+}
+
+.controls .pause-play{
+    width: 5rem;
+    height: 5rem;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.fas:hover{
+    color: gray;
+}
+.pause-play:hover{
+    color: black;
+    background-color: rgb(155, 155, 156);
+    text-shadow: 0rem  1.2rem 3rem 0.5rem  rgba(0, 0, 0, 0.8);
+}
+
+.anime{
+    animation: rotation 3s linear infinite;
+}
+@keyframes rotation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
